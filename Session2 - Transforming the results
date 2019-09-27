@@ -1,0 +1,45 @@
+Transforming the strings, numbers and dates
+
+#Transform numeric & strings
+For this exercise you are planning to run a 50% off promotion for films released prior to 2006
+To prepare for this promotion you will need to return the films that qualify for this promotion, 
+to make these titles easier to read you will convert them all to lower case
+You will also need to return both the original_rate and the sale_rate
+
+1. Return the LOWER-case titles of the films.
+   Return the original rental_rate and the 50% discounted sale_rate by multiplying rental_rate by 0.5.
+   Ensure only films prior to 2006 are considered for this promotion
+  
+Answer: 
+   SELECT LOWER(title) AS title, 
+  rental_rate AS original_rate, 
+  rental_rate * 0.5 AS sale_rate 
+  FROM film
+  WHERE release_year<2006;
+  
+Extract what you need
+In this exercise you will practice preparing date/time elements by using the 
+
+EXTRACT() function
+
+2. EXTRACT the DAY from payment_date and return this column AS the payment_day
+
+Answer: 
+  SELECT payment_date,
+  EXTRACT(DAY from payment_date) AS payment_day 
+  FROM payment;
+  
+3. EXTRACT the YEAR from payment_date and return this column AS the payment_year
+
+Answer:
+  SELECT payment_date,
+  EXTRACT (YEAR from payment_date) AS payment_year 
+  FROM payment;
+  
+4. EXTRACT the HOUR from payment_date and return this column AS the payment_hour.
+
+Answer: 
+   SELECT payment_date,
+   EXTRACT (HOUR from payment_date) AS payment_hour 
+   FROM payment;
+   
