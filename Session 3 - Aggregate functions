@@ -1,0 +1,28 @@
+Numeric Aggregate and String aggregate
+
+For aggregating with strings use the following syntax:
+    string_agg(<column>, <separator>)
+   
+Aggregating finances
+In this exercise you would like to learn more about the 
+differences in payments between the customers who are active and those who are not
+
+1.Identify the number of active and inactive customers by COUNT()ing them
+
+Find out the differences in their average payments by using AVG()
+
+Find out the differences in their total payments by using SUM()
+
+Ensure the aggregate functions GROUP BY whether customer payments are active
+
+Answer:
+  SELECT active, 
+       COUNT(active) AS num_active, 
+       AVG(amount) AS avg_amount, 
+       SUM(amount) AS total_amount
+  FROM payment AS p
+  INNER JOIN customer AS c
+  ON p.customer_id = c.customer_id
+  GROUP BY active;
+  
+  
