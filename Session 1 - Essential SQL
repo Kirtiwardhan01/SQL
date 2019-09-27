@@ -1,0 +1,30 @@
+# SQL 
+
+1. In this exercise you must prepare the data you need (title & description) 
+   to run a promotion for the store's Italian & French language films from 2005
+   
+   Return the title and description from the film table. Make sure to alias this table AS f
+   
+   Answer:
+   SELECT title,description
+   FROM film AS f
+  
+  
+  Return the first_name, last_name and amount.
+  INNER JOIN the tables you need for this query: payment and customer using the customer_id for the join.
+  Ensure only active customers are returned.
+  Sort the results in DESCending order by the amount paid
+  
+  Answer:
+  SELECT first_name, 
+	       last_name, 
+	       amount
+  FROM payment AS p
+  INNER JOIN customer AS c
+  ON p.customer_id = c.customer_id
+  WHERE active
+  ORDER BY amount DESC;
+  
+  
+  
+  
